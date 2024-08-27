@@ -3,7 +3,9 @@ Description=MC_Server_BootUP
 
 [Service]
 ExecStart=/home/florianwimbauer/raspMC/OnDevice/boot.sh
-Restart=no
+Restart=on-failure
+RemainAfterExit=yes
+Type=forking
 
 [Install]
 WantedBy=multi-user.target
