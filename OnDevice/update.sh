@@ -10,6 +10,13 @@ LATEST_VERSION_URL="https://launchermeta.mojang.com/mc/game/version_manifest.jso
 download_latest() {
     echo "Lade die neueste Minecraft-Version herunter..."
 
+    echo "Server stoppen"
+    # Anhaltebenachrichtigung
+    screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Minecraft-Update. We will be right back!\n"
+    sleep 5
+    # Stop des Servers
+    screen -S serverTerminal -p 0 -X stuff "stop\n"
+
     # Hole die neueste Version-Informationen
     VERSION_DATA=$(curl -s $LATEST_VERSION_URL)
 
@@ -24,7 +31,7 @@ download_latest() {
     curl -o "/opt/minecraft-server/server.jar" "$SERVER_JAR_URL"
 
     echo "Aktualisierung abgeschlossen. Die neueste Version ($LATEST_VERSION) wurde heruntergeladen."
-    echo Server wird wieder gestartet... Übergabe an Start-Skript \n \n
+    echo Server wird wieder gestartet... Übergabe an Start-Skript
     boot.sh
 }
 

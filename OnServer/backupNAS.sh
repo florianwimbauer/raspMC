@@ -9,10 +9,10 @@
 ssh -p 12345 gaming.wimbauer.cloud
 
 # Server benachrichtigen, dass jetzt ein Backup erfolgt
-ssh -p 12345 gaming.wimbauer.cloud 'screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Backup. We will be right back"'
+ssh -p 12345 gaming.wimbauer.cloud 'screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Backup. We will be right back\n"'
 sleep 5
 # Server stoppen
-ssh -p 12345 gaming.wimbauer.cloud 'screen -S serverTerminal -p 0 -X stuff "stop"'
+ssh -p 12345 gaming.wimbauer.cloud 'screen -S serverTerminal -p 0 -X stuff "stop\n"'
 
 # Backup anstoßen
 rsync -arz -e "ssh -p 12345" gaming.wimbauer.cloud/opt/minecraft-server/world backups

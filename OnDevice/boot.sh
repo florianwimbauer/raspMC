@@ -57,6 +57,6 @@ else
 fi
 
 # Ausgabe im Minecraftserer, dass Startup erfolgreich war
-screen -S serverTerminal -p 0 -X stuff 'say Server per Skript automatisch neugestartet\nsay Viel Spaß beim Spielen wünscht Flo'
+screen -S serverTerminal -p 0 -X stuff 'say Server per Skript automatisch neugestartet\nsay Viel Spaß beim Spielen wünscht Flo\n'
 
 echo Serverstart erfolgreich durchgeführt\n
