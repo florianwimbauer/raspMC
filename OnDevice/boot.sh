@@ -46,7 +46,7 @@ screen -d -m -S serverTerminal java -Xmx2G -Xms2G -jar server.jar nogui
 # Flags in Startup für Ramzuweisung von 2GB max & initial
 
 echo Warte auf Lebenszeichen...
-delay 15
+sleep 15
 
 #Testen ob der Serverstart erfolgreich war, in dem man schaut ob auf Port 25565 gelauscht wird
 if nc -z localhost 25565
