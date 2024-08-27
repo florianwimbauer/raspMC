@@ -13,7 +13,7 @@ then
     echo CHECK Directory Exisitert 
 else 
     echo ERR Server Directory existiert nicht
-exit 1
+    exit
 fi
 
 # Testen, ob JDK da ist
@@ -54,11 +54,9 @@ then
     echo "CHECK Minecraftserver erfolgreich gestartet"
 else
     echo "ERR Server konnte nicht gestartet werden"
-    exit 1
 fi
 
 # Ausgabe im Minecraftserer, dass Startup erfolgreich war
 screen -S serverTerminal -p 0 -X stuff 'say Server per Skript automatisch neugestartet\nsay Viel Spaß beim Spielen wünscht Flo'
 
 echo Serverstart erfolgreich durchgeführt\n
-exit 0
