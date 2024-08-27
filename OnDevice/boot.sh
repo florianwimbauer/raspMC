@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Diees Skript startet den Minecraft Server nach einem Stromausfall / Neustart des Raspberrys
 # Gedacht als systemd-Service zum einmaligen Ausführen bei Stromausfall oder zum manuellen Ausführen bei Bedarf.
 # VORSICHT: Skript prüft NICHT, ob der Server bereits läuft!
