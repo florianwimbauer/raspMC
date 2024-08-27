@@ -32,7 +32,7 @@ download_latest() {
 
     echo "Aktualisierung abgeschlossen. Die neueste Version ($LATEST_VERSION) wurde heruntergeladen."
     echo Server wird wieder gestartet... Übergabe an Start-Skript
-    boot.sh
+    ./boot.sh
 }
 
 # Funktion zum Überprüfen der aktuellen Version

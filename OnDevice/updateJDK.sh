@@ -20,8 +20,8 @@ then
 
     #Neustart des Servers
     echo "Server wird wieder gestartet. Übergebe an boot.sh"
-    boot.sh
-    
+    ./boot.sh
+
 else
     echo "Java ist bereits auf dem neuesten Stand."
 fi
