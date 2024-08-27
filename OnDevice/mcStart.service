@@ -1,11 +1,11 @@
 [Unit]
-Description=MC_Server_BootUP
+Description=Minecraft Server
 
 [Service]
+Type=simple
 ExecStart=/home/florianwimbauer/raspMC/OnDevice/boot.sh
+WorkingDirectory=/opt/minecraft-server
 Restart=on-failure
-RemainAfterExit=yes
-Type=forking
 
 [Install]
 WantedBy=multi-user.target
