@@ -1,0 +1,9 @@
+[Unit]
+Description=MC_Server_BootUP
+
+[Service]
+ExecStart=/home/florianwimbauer/boot.sh
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
