@@ -2,7 +2,7 @@
 Description=MC_Server_BootUP
 
 [Service]
-ExecStart=/home/florianwimbauer/boot.sh
+ExecStart=/home/florianwimbauer/raspMC/boot.sh
 Restart=no
 
 [Install]
