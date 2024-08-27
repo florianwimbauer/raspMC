@@ -3,7 +3,7 @@ Description=Minecraft Server
 
 [Service]
 Type=simple
-ExecStart=/home/florianwimbauer/raspMC/OnDevice/boot.sh
+ExecStart=/usr/bin/screen -DmS minecraft /home/florianwimbauer/raspMC/OnDevice/boot.sh
 WorkingDirectory=/opt/minecraft-server
 Restart=on-failure
 
