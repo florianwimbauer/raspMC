@@ -13,7 +13,7 @@ then
     echo CHECK Directory Exisitert 
 else 
     echo ERR Server Directory existiert nicht
-    exit
+    kill $$
 fi
 
 # Testen, ob JDK da ist
