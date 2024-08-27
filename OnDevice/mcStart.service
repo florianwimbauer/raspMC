@@ -2,9 +2,9 @@
 Description=Minecraft Server
 
 [Service]
-Type=forking
+Type=simple
+RemainAfterExit=yes
 ExecStart=/home/florianwimbauer/raspMC/OnDevice/boot.sh
-User=florianwimbauer
 Restart=on-failure
 
 [Install]
