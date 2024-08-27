@@ -2,10 +2,14 @@
 Description=Minecraft Server
 
 [Service]
-Type=simple
-ExecStart=/usr/bin/screen -DmS minecraft /home/florianwimbauer/raspMC/OnDevice/boot.sh
-WorkingDirectory=/opt/minecraft-server
+Type=forking
+ExecStart=/home/florianwimbauer/raspMC/OnDevice/boot.sh
+User=minecraft
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+
+sudo systemctl start mcStart.service
+sudo systemctl enable /home/florianwimbauer/raspMC/OnDevice/mcStart.service
+sudo systemctl status mcStart.service
