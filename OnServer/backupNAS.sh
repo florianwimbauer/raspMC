@@ -14,11 +14,11 @@ sleep 2
 
 # Speichern des Pfades zum letzten Backup (da später kopiert wird)
 echo Duplikat vorbereiten
-TOCOPY=$(ls -td Backups/*/ | head -1)
+TOCOPY=$(ls -td /volume1/PrivaterServer/RasPi_Backuping/Backups/*/ | head -1)
 
 # Neuen Ordner für das Backup erstellen
 echo Neuer Backupordner wird erstellt
-BACKUP_DIR="Backups/$(date +%Y-%m-%d_%H-%M-%S)"
+BACKUP_DIR=/volume1/PrivaterServer/RasPi_Backuping/Backups/$(date +%Y-%m-%d_%H-%M-%S)
 mkdir "$BACKUP_DIR"
 
 
@@ -57,3 +57,10 @@ echo "CHECK Neustart erfolgreich. Backup abgeschlossen"
 else 
 echo "ERR Fehler beim Neustarten!"
 fi
+
+#Ältesten Ordner löschen
+echo Lösche ältestes Backup
+TODELETE=$(ls -td /volume1/PrivaterServer/RasPi_Backuping/Backups/*/ | tail -1)
+rm -rf "$TODELETE"
+
+echo SUCCESS Skript beendet
