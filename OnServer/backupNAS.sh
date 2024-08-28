@@ -9,11 +9,8 @@
 echo Backupskript wird gestartet
 echo Spieler benachrichtigen
 ssh -p 12345 florianwimbauer@gaming.wimbauer.cloud 'sudo screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Backup. We will be right back\n"'
-sleep 5
 
-# Server stoppen via systemd-service beedingung
-echo Server wird angehalten
-ssh -p 12345 florianwimbauer@gaming.wimbauer.cloud 'sudo systemctl stop mcStart.service'
+sleep 2
 
 # Speichern des Pfades zum letzten Backup (da später kopiert wird)
 echo Duplikat vorbereiten
@@ -29,6 +26,13 @@ mkdir "$BACKUP_DIR"
 echo Kopie wird erstellt
 echo von XX $TOCOPY XX der Inhalt nach XX $BACKUP_DIR XX
 cp -ar $TOCOPY* $BACKUP_DIR/
+
+# Server stoppen via systemd-service beedingung
+# um maximale ontime zu erreichen erst hier abschalten
+echo Server wird angehalten
+ssh -p 12345 florianwimbauer@gaming.wimbauer.cloud 'sudo systemctl stop mcStart.service'
+
+sleep 2
 
 # Backup anstoßen & speichern in den neusten Ordner
 echo RSYNC wird angestoßen
