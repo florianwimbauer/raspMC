@@ -7,10 +7,10 @@ then
     echo "Java-Update verfügbar. Aktualisierung wird durchgeführt..."
     echo "Server stoppen"
     # Anhaltebenachrichtigung
-    screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Java-Update. We will be right back!\n"
+    sudo screen -S serverTerminal -p 0 -X stuff "say Neustart wegen Java-Update. We will be right back!\n"
     sleep 5
     # Stop des Servers
-    screen -S serverTerminal -p 0 -X stuff "stop\n"
+    sudo systemctl stop mcStart.service
 
     # Update durchführen
     sudo apt upgrade -y default-jre
@@ -19,8 +19,8 @@ then
     echo "Java wurde aktualisiert."
 
     #Neustart des Servers
-    echo "Server wird wieder gestartet. Übergebe an boot.sh"
-    ./boot.sh
+    echo "Server wird wieder gestartet. Systemd service wird gestartet"
+    sudo systemctl start mcStart.service
 
 else
     echo "Java ist bereits auf dem neuesten Stand."
